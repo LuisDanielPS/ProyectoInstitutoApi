@@ -1,10 +1,9 @@
-﻿using Dapper;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using ProyectoAPI.Entities;
+﻿using Microsoft.AspNetCore.Mvc;
+using Dapper;
 using System.Data;
 using System.Data.SqlClient;
+using ProyectoAPI.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProyectoAPI.Controllers
 {
@@ -58,15 +57,20 @@ namespace ProyectoAPI.Controllers
         {
             try
             {
-                var verificacionCorreo = VerificarCorreo(entidad.Correo);
-                if (verificacionCorreo >= 1)
-                {
-                    return Ok(150);
-                }
+                //    var verificacionCorreo = VerificarCorreo(entidad.Correo);
+                //    if (verificacionCorreo >= 1)
+                //    {
+                //        return Ok(150);
+                //    }
                 using (var context = new SqlConnection(_connection))
                 {
                     entidad.IdEstatus = 1;
                     entidad.IdRol = 2;
+
+                    string dato = entidad.Telefono.Substring(entidad.Telefono.Length - 4);
+
+                    entidad.Usuario = (entidad.Nombre.Substring(0, 1) + entidad.Apellido1.Substring(0, 4) + dato).ToLower();
+
                     var datos = context.Execute("RegistrarUsuario",
                         new { entidad.Correo, entidad.Nombre, entidad.Apellido1, entidad.Apellido2, 
                             entidad.FechaNacimiento, entidad.Telefono, entidad.Direccion, entidad.IdEstatus, entidad.IdRol, 
@@ -82,27 +86,27 @@ namespace ProyectoAPI.Controllers
             }
         }
 
-        public int VerificarCorreo(string correo)
-        {
-            try
-            {
-                using (var context = new SqlConnection(_connection))
-                {
-                    context.Open();
+        //public int VerificarCorreo(string correo)
+        //{
+        //    try
+        //    {
+        //        using (var context = new SqlConnection(_connection))
+        //        {
+        //            context.Open();
 
-                    var parameters = new DynamicParameters();
-                    parameters.Add("@Correo", correo, DbType.String);
+        //            var parameters = new DynamicParameters();
+        //            parameters.Add("@Correo", correo, DbType.String);
 
-                    var result = context.QueryFirstOrDefault<int>("VerificarCorreo", parameters, commandType: CommandType.StoredProcedure);
+        //            var result = context.QueryFirstOrDefault<int>("VerificarCorreo", parameters, commandType: CommandType.StoredProcedure);
 
-                    return result;
-                }
-            }
-            catch (Exception)
-            {
-                return -1;
-            }
-        }
+        //            return result;
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return -1;
+        //    }
+        //}
 
     }
 }
