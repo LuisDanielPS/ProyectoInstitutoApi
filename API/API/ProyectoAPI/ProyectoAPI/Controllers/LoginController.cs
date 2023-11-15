@@ -13,10 +13,12 @@ namespace ProyectoAPI.Controllers
     {
         private readonly IConfiguration _configuration;
         private string _connection;
+        private readonly IUtilitarios _utilitarios;
 
-        public LoginController(IConfiguration configuration)
+        public LoginController(IConfiguration configuration, IUtilitarios utilitarios)
         {
             _configuration = configuration;
+            _utilitarios = utilitarios;
             _connection = _configuration.GetConnectionString("DefaultConnection");
         }
 
@@ -29,6 +31,8 @@ namespace ProyectoAPI.Controllers
             {
                 using (var context = new SqlConnection(_connection))
                 {
+                    entidad.PwUsuario = _utilitarios.Encrypt(entidad.PwUsuario);
+
                     var datos = context.Query<UsuarioEnt>("IniciarSesion",
                         new { entidad.Usuario, entidad.PwUsuario },
                         commandType: CommandType.StoredProcedure).FirstOrDefault();
@@ -57,11 +61,13 @@ namespace ProyectoAPI.Controllers
         {
             try
             {
-                //    var verificacionCorreo = VerificarCorreo(entidad.Correo);
-                //    if (verificacionCorreo >= 1)
-                //    {
-                //        return Ok(150);
-                //    }
+                var verificacionCorreo = VerificarCorreo(entidad.Correo);
+                if (!verificacionCorreo)
+                {
+                    return Ok(150);
+                }
+
+
                 using (var context = new SqlConnection(_connection))
                 {
                     entidad.IdEstatus = 1;
@@ -70,6 +76,8 @@ namespace ProyectoAPI.Controllers
                     string dato = entidad.Telefono.Substring(entidad.Telefono.Length - 4);
 
                     entidad.Usuario = (entidad.Nombre.Substring(0, 1) + entidad.Apellido1.Substring(0, 4) + dato).ToLower();
+
+                    entidad.PwUsuario = _utilitarios.Encrypt(entidad.PwUsuario);
 
                     var datos = context.Execute("RegistrarUsuario",
                         new { entidad.Correo, entidad.Nombre, entidad.Apellido1, entidad.Apellido2, 
@@ -86,27 +94,32 @@ namespace ProyectoAPI.Controllers
             }
         }
 
-        //public int VerificarCorreo(string correo)
-        //{
-        //    try
-        //    {
-        //        using (var context = new SqlConnection(_connection))
-        //        {
-        //            context.Open();
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("VerificarCorreo")]
+        public bool VerificarCorreo(string correo)
+        {
+            try
+            {
+                using (var context = new SqlConnection(_connection))
+                {
+                    var result = context.ExecuteScalar<int>("VerificarCorreo", new { correo }, commandType: CommandType.StoredProcedure);
 
-        //            var parameters = new DynamicParameters();
-        //            parameters.Add("@Correo", correo, DbType.String);
-
-        //            var result = context.QueryFirstOrDefault<int>("VerificarCorreo", parameters, commandType: CommandType.StoredProcedure);
-
-        //            return result;
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        return -1;
-        //    }
-        //}
+                    if (result == 0)
+                    {
+                        return true;  
+                    }
+                    else 
+                    { 
+                        return false; 
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
     }
 }
