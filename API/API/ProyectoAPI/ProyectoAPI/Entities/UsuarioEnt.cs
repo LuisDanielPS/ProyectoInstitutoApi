@@ -2,7 +2,8 @@
 {
     public class UsuarioEnt
     {
-        public long IdCliente { get; set; }
+        public long IdUsuario { get; set; }
+        public string Cedula { get; set; } = string.Empty;
         public string Correo { get; set; } = string.Empty;
         public string Nombre { get; set; } = string.Empty;
         public string Apellido1 { get; set; } = string.Empty;

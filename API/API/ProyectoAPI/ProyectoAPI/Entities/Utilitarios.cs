@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using System.Net;
 using System.Net.Mail;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -68,7 +69,47 @@ namespace ProyectoAPI.Entities
             }
         }
 
+        public string GenerarContrasenna()
+        {
+            int length = 5;
+            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder res = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < length--)
+            {
+                res.Append(valid[rnd.Next(valid.Length)]);
+            }
+            return res.ToString();
+        }
 
+        public void SendEmail(string recipient, string subject, string valueU, string valueP, int emailType)
+
+        {
+            string EmailAcount = _configuration.GetSection("Llaves:correoSMTP").Value;
+            string PasswordEmail = _configuration.GetSection("Llaves:claveSMTP").Value;
+            string message = "";
+
+            if (emailType == 1) // Register
+            {
+                message = "Nueva Contraseña " + valueU + "   " + valueP;
+            }
+
+            MailMessage msg = new MailMessage();
+            msg.To.Add(new MailAddress(recipient));
+            msg.From = new MailAddress(EmailAcount);
+            msg.Subject = subject;
+            msg.Body = message;
+            msg.IsBodyHtml = true;
+
+            SmtpClient client = new SmtpClient();
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential(EmailAcount, PasswordEmail);
+            client.Port = 587;
+            client.Host = "smtp.office365.com";
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.EnableSsl = true;
+            client.Send(msg);
+        }
 
     }
 

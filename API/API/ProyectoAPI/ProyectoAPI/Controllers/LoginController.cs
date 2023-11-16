@@ -121,5 +121,39 @@ namespace ProyectoAPI.Controllers
             }
         }
 
+        [HttpPut]
+        [Authorize]
+        [Route("RestablecerClave")]
+        public IActionResult RestablecerClave(UsuarioEnt entidad)
+        {
+            try
+            {
+                using (var context = new SqlConnection(_connection))
+                {
+
+                    var consultaUsuario = context.Query<UsuarioEnt>("ConsultarUsuario",
+                        new { entidad.Usuario },
+                        commandType: CommandType.StoredProcedure).FirstOrDefault();
+
+                    entidad.PwUsuario = _utilitarios.GenerarContrasenna();
+
+                    var datos = context.Execute("RestablecerClave",
+                        new { consultaUsuario.IdUsuario, entidad.PwUsuario },
+                        commandType: CommandType.StoredProcedure);
+
+                    if (datos > 0)
+                    {
+                        _utilitarios.SendEmail(consultaUsuario.Correo, "Restablecimiento de contraseña", consultaUsuario.Usuario, entidad.PwUsuario, 1);
+                    }
+
+                    return Ok(datos);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }
