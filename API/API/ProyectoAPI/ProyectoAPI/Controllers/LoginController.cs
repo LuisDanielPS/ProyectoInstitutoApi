@@ -57,7 +57,7 @@ namespace ProyectoAPI.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("RegistrarUsuario")]
-        public IActionResult RegistrarUsuario(UsuarioRegistrarEnt entidad)
+        public IActionResult RegistrarUsuario(UsuarioEnt entidad)
         {
             try
             {
@@ -80,8 +80,8 @@ namespace ProyectoAPI.Controllers
                     entidad.PwUsuario = _utilitarios.Encrypt(entidad.PwUsuario);
 
                     var datos = context.Execute("RegistrarUsuario",
-                        new { entidad.Correo, entidad.Nombre, entidad.Apellido1, entidad.Apellido2, 
-                            entidad.FechaNacimiento, entidad.Telefono, entidad.Direccion, entidad.IdEstatus, entidad.IdRol, 
+                        new { entidad.Correo, entidad.Cedula, entidad.Nombre, entidad.Apellido1, entidad.Apellido2,
+                            entidad.Telefono, entidad.Direccion, entidad.IdEstatus, entidad.IdRol, 
                             entidad.Usuario, entidad.PwUsuario },
                         commandType: CommandType.StoredProcedure);
 
