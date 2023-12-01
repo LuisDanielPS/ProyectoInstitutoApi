@@ -17,5 +17,6 @@
         public string PwUsuario { get; set; } = string.Empty;
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaUltimaActividad { get; set; }
+        public string NombreRol { get; set; } = string.Empty;
     }
 }
