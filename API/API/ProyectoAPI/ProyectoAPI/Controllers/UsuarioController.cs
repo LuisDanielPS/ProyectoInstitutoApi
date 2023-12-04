@@ -26,7 +26,6 @@ namespace ProyectoAPI.Controllers
             _utilitarios = utilitarios;
         }
 
-
         [HttpGet]
         [AllowAnonymous]
         [Route("ConsultarUsuario")]

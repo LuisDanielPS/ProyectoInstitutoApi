@@ -135,8 +135,6 @@ namespace ProyectoAPI.Controllers
             }
         }
 
-
-
         [HttpPost]
         [AllowAnonymous]
         [Route("RegistrarMatricula")]
@@ -245,6 +243,34 @@ namespace ProyectoAPI.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [AllowAnonymous]
+        [Route("EliminarMatriculaPorUsuario")]
+        public bool EliminarMatriculaPorUsuario(UsuariosMatriculadosEnt Usuario)
+        {
+            try
+            {
+                var idUsuario = Usuario.IdUsuario;
+                using (var context = new SqlConnection(_connection))
+                {
+                    var result = context.ExecuteScalar<int>("EliminarMatriculaPorUsuario", new { idUsuario }, commandType: CommandType.StoredProcedure);
+
+                    if (result == 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
 
