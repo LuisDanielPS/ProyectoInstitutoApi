@@ -332,6 +332,59 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
+	DECLARE @Nombre varchar(50) = '';
+
+    SELECT
+		U.[IdUsuario],
+        U.[Cedula],
+        U.[Correo],
+        U.[Nombre],
+        U.[Apellido1],
+        U.[Apellido2],
+        U.[Telefono],
+        U.[Direccion],
+        U.[IdEstatus],
+        U.[IdRol],
+        U.[Usuario],
+        U.[PwUsuario],
+        U.[FechaCreacion],
+        U.[FechaUltimaActividad],
+        @Nombre AS [NombreRol]
+    FROM
+        [dbo].[Usuario] U
+    INNER JOIN
+        [dbo].[Matricula] M ON U.[IdUsuario] = M.[IdUsuario]
+    WHERE
+        M.[IdCurso] = @IdCurso;
+END;
+GO
+
+EXEC [dbo].[UsuariosPorCursoMatriculado] @IdCurso = 1;
+
+CREATE OR ALTER PROCEDURE [dbo].[ConsultarGrupos]
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        G.[IdGrupo],
+        G.[IdEstatus],
+        G.[Descripcion],
+		G.[IdCurso],
+        C.[Nombre] AS NombreCurso
+    FROM
+        [dbo].[Grupo] G
+    INNER JOIN
+        [dbo].[Curso] C ON G.[IdCurso] = C.[IdCurso];
+END;
+GO
+
+CREATE OR ALTER PROCEDURE [dbo].[ConsultarEstudiantesPorGrupo]
+    @IdGrupo bigint
+AS
+BEGIN
+    SET NOCOUNT ON;
+
     SELECT
         U.[IdUsuario],
         U.[Cedula],
@@ -349,26 +402,23 @@ BEGIN
     FROM
         [dbo].[Usuario] U
     INNER JOIN
-        [dbo].[Matricula] M ON U.[IdUsuario] = M.[IdUsuario]
+        [dbo].[GrupoEstudiantes] GE ON U.[IdUsuario] = GE.[IdUsuario]
     WHERE
-        M.[IdCurso] = @IdCurso;
+        GE.[IdGrupo] = @IdGrupo;
 END;
 GO
 
-CREATE OR ALTER PROCEDURE [dbo].[ConsultarGrupos]
+CREATE OR ALTER PROCEDURE [dbo].[VerificarUsuarioPorGrupo]
+    @IdUsuario bigint,
+    @IdGrupo bigint
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    SELECT
-        G.[IdGrupo],
-        G.[IdEstatus],
-        G.[Descripcion],
-		G.[IdCurso],
-        C.[Nombre] AS NombreCurso
-    FROM
-        [dbo].[Grupo] G
-    INNER JOIN
-        [dbo].[Curso] C ON G.[IdCurso] = C.[IdCurso];
+	SELECT *
+	FROM [dbo].[GrupoEstudiantes]
+	WHERE [IdUsuario] = @IdUsuario
+	AND [IdGrupo] = @IdGrupo
+
 END;
 GO
