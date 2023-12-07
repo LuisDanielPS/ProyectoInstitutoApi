@@ -27,7 +27,7 @@ namespace ProyectoAPI.Controllers
         // POST: api/Profesor/RegistrarProfesor
         [HttpPost]
         [Route("RegistrarProfesor")]
-        public IActionResult PostProfesor([FromBody] ProfesorEnt profesor)
+        public IActionResult PostProfesor(ProfesorEnt profesor)
         {
             try
             {
