@@ -67,7 +67,6 @@ namespace ProyectoAPI.Controllers
                     return Ok(150);
                 }
 
-
                 using (var context = new SqlConnection(_connection))
                 {
                     entidad.IdEstatus = 1;
