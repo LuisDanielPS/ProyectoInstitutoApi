@@ -121,7 +121,7 @@ namespace ProyectoAPI.Controllers
         }
 
         [HttpPut]
-        [Authorize]
+        [AllowAnonymous]
         [Route("RestablecerClave")]
         public IActionResult RestablecerClave(UsuarioEnt entidad)
         {

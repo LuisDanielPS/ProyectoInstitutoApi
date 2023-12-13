@@ -154,3 +154,42 @@ C:\Users\cr787\OneDrive\Escritorio\U. FIDÉLITAS\CURSOS\7° Cuatrimestre\Progra 
 C:\Users\cr787\OneDrive\Escritorio\U. FIDÉLITAS\CURSOS\7° Cuatrimestre\Progra Avanzada Web\Proyecto\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.pdb
 C:\Users\cr787\OneDrive\Escritorio\U. FIDÉLITAS\CURSOS\7° Cuatrimestre\Progra Avanzada Web\Proyecto\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.genruntimeconfig.cache
 C:\Users\cr787\OneDrive\Escritorio\U. FIDÉLITAS\CURSOS\7° Cuatrimestre\Progra Avanzada Web\Proyecto\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ref\ProyectoAPI.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\appsettings.Development.json
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\appsettings.json
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\ProyectoAPI.exe
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\ProyectoAPI.deps.json
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\ProyectoAPI.runtimeconfig.json
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\ProyectoAPI.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\ProyectoAPI.pdb
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\Dapper.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\System.Data.SqlClient.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.csproj.AssemblyReference.cache
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.AssemblyInfoInputs.cache
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.AssemblyInfo.cs
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.csproj.CoreCompileInputs.cache
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\staticwebassets\msbuild.ProyectoAPI.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.ProyectoAPI.props
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ProyectoAPI.props
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ProyectoAPI.props
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\staticwebassets.build.json
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\staticwebassets.development.json
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\scopedcss\bundle\ProyectoAPI.styles.css
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.csproj.CopyComplete
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\refint\ProyectoAPI.dll
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.pdb
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ProyectoAPI.genruntimeconfig.cache
+D:\Proyectos Github\ProyectoInstitutoApi\API\API\ProyectoAPI\ProyectoAPI\obj\Debug\net6.0\ref\ProyectoAPI.dll

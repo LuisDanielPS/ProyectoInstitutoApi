@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Esteban\\source\\repos\\ProyectoAPI\\API\\API\\ProyectoAPI\\ProyectoAPI\\ProyectoAPI.csproj": {}
+    "D:\\Proyectos Github\\ProyectoInstitutoApi\\API\\API\\ProyectoAPI\\ProyectoAPI\\ProyectoAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Esteban\\source\\repos\\ProyectoAPI\\API\\API\\ProyectoAPI\\ProyectoAPI\\ProyectoAPI.csproj": {
+    "D:\\Proyectos Github\\ProyectoInstitutoApi\\API\\API\\ProyectoAPI\\ProyectoAPI\\ProyectoAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Esteban\\source\\repos\\ProyectoAPI\\API\\API\\ProyectoAPI\\ProyectoAPI\\ProyectoAPI.csproj",
+        "projectUniqueName": "D:\\Proyectos Github\\ProyectoInstitutoApi\\API\\API\\ProyectoAPI\\ProyectoAPI\\ProyectoAPI.csproj",
         "projectName": "ProyectoAPI",
-        "projectPath": "C:\\Users\\Esteban\\source\\repos\\ProyectoAPI\\API\\API\\ProyectoAPI\\ProyectoAPI\\ProyectoAPI.csproj",
-        "packagesPath": "C:\\Users\\Esteban\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Esteban\\source\\repos\\ProyectoAPI\\API\\API\\ProyectoAPI\\ProyectoAPI\\obj\\",
+        "projectPath": "D:\\Proyectos Github\\ProyectoInstitutoApi\\API\\API\\ProyectoAPI\\ProyectoAPI\\ProyectoAPI.csproj",
+        "packagesPath": "C:\\Users\\LUIS\\.nuget\\packages\\",
+        "outputPath": "D:\\Proyectos Github\\ProyectoInstitutoApi\\API\\API\\ProyectoAPI\\ProyectoAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Esteban\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\LUIS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -77,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

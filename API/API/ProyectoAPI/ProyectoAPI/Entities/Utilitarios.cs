@@ -113,7 +113,4 @@ namespace ProyectoAPI.Entities
 
     }
 
-    
-
-
 }

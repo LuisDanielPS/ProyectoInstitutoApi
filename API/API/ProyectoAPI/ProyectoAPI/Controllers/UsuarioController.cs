@@ -51,14 +51,15 @@ namespace ProyectoAPI.Controllers
         [HttpGet]
         [AllowAnonymous]
         [Route("ListaUsuarios")]
-        public IActionResult ListaUsuarios()
+        public IActionResult ListaUsuarios(long IdUsuario)
         {
             try
             {
+
                 using (var context = new SqlConnection(_connection))
                 {
                     var datos = context.Query<UsuarioEnt>("ListaUsuarios",
-                        new { },
+                        new { IdUsuario },
                         commandType: CommandType.StoredProcedure).ToList();
 
                     return Ok(datos);
@@ -73,28 +74,22 @@ namespace ProyectoAPI.Controllers
         [HttpPut]
         [AllowAnonymous]
         [Route("ActualizarEstadoUsuario")]
-        public bool ActualizarEstadoUsuario(UsuarioEnt Usuario)
+        public IActionResult ActualizarEstadoUsuario(UsuarioEnt Usuario)
         {
             try
-            {
-                var idUsuario = Usuario.IdUsuario;
+            {               
                 using (var context = new SqlConnection(_connection))
                 {
-                    var result = context.ExecuteScalar<int>("ActualizarEstadoUsuario", new { idUsuario }, commandType: CommandType.StoredProcedure);
+                    var result = context.Execute("ActualizarEstadoUsuario",
+                        new { Usuario.IdUsuario },
+                        commandType: CommandType.StoredProcedure);
 
-                    if (result == 0)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return Ok(result);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return BadRequest(ex.Message);
             }
         }
 
@@ -161,8 +156,32 @@ namespace ProyectoAPI.Controllers
                             entidad.Apellido2,
                             entidad.Telefono,
                             entidad.Direccion,
-                            entidad.IdRol
                         },
+                        commandType: CommandType.StoredProcedure);
+
+                    return Ok(datos);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut]
+        [AllowAnonymous]
+        [Route("ActualizarContrasena")]
+        public IActionResult ActualizarContrasena(UsuarioEnt entidad)
+        {
+            try
+            {
+                entidad.PwUsuario = _utilitarios.Encrypt(entidad.PwUsuario);
+                entidad.PwUsuarioAnterior = _utilitarios.Encrypt(entidad.PwUsuarioAnterior);
+
+                using (var context = new SqlConnection(_connection))
+                {
+                    var datos = context.Execute("ActualizarContrasena",
+                        new { entidad.IdUsuario, entidad.PwUsuarioAnterior, entidad.PwUsuario },
                         commandType: CommandType.StoredProcedure);
 
                     return Ok(datos);

@@ -24,7 +24,6 @@ namespace ProyectoAPI.Controllers
             _connection = _configuration.GetConnectionString("DefaultConnection");
         }
 
-
         [HttpGet]
         [AllowAnonymous]
         [Route("ListaRoles")]
