@@ -53,8 +53,6 @@ namespace ProyectoAPI.Controllers
             }
         }
 
-
-
         [HttpPost]
         [AllowAnonymous]
         [Route("RegistrarEstudianteGrupo")]
